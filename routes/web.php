@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layout.main');
+});
+
+Route::get('users',function(){
+    return view('users.users');
+});
+
+Route::get('groups',function(){
+    return view('groups.groups');
 });
