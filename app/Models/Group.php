@@ -9,5 +9,14 @@ class Group extends Model
 {
     use HasFactory;
 
-    public $fillable = ['title'];
+    protected $fillable = ['title'];
+
+    public static function arrayForGroupList(){
+        $arr = [];
+        $all= Group::all();
+        foreach($all as $i){
+            $arr[$i->id] = $i->title; 
+        } 
+        return $arr;
+    }
 }

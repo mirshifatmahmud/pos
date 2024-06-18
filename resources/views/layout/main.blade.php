@@ -61,8 +61,8 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
+                <a class="nav-link collapsed" href="#accordionSidebar" data-toggle="collapse" data-target="#collapseOne"
+                     aria-controls="collapseOne">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>User</span>
                 </a>
@@ -70,7 +70,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="{{ url('groups') }}">Groups</a>
-                        <a class="collapse-item" href="{{ url('users') }}">Usesr</a>
+                        <a class="collapse-item" href="{{ url('user') }}">Usesr</a>
                     </div>
                 </div>
             </li>
@@ -89,8 +89,6 @@
                     </div>
                 </div>
             </li>
-
-            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
