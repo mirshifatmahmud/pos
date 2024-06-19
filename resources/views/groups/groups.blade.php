@@ -24,7 +24,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
-                            <th class="text-center">Actions</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     {{-- <tfoot>
@@ -40,11 +40,11 @@
                         <tr>
                             <td>{{ $group->id }}</td>
                             <td>{{ $group->title }}</td>
-                            <td class="text-center">
+                            <td>
                                 <form action="{{ url('groups/delete/'.$group->id) }}" method="POST">
                                     @csrf
                                     @method('delete') 
-                                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger" ><i class="fa fa-minus-circle mr-1"></i>Delete</button>
+                                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm" ><i class="fa fa-minus-circle"></i></button>
                                 </form>
                             </td>
                         </tr>

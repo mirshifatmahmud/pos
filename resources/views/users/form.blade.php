@@ -14,7 +14,7 @@
         </div>
     @endif
 
-    <h1>User Create</h1>
+    <h1>{{ $headLine }}</h1>
     <hr>
 
     <div class="card shadow mb-4">
@@ -25,13 +25,16 @@
             <div class="col-md-8">
                 <div class="card-body">
 
-
+                @if ($mode == 'edit')
+                    {!! Form::model($user,['url' => 'user/'.$user->id,'method' => 'put']) !!}  
+                @else
                     {!! Form::open(['url' => 'user','method' => 'post']) !!}
+                @endif
 
                     <div class="form-group row">
                         {{ Form::label('group_id', 'User Groups', ['class' => 'col-sm-2 col-form-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::select('group_id', $groupList,null,['class' => 'form-control', 'placeholder' => 'Select User Group']) }}
+                            {{ Form::select('group_id', $groupList, null, ['class' => 'form-control', 'placeholder' => 'Select User Group']) }}
                         </div>
                       </div>
 
@@ -63,9 +66,17 @@
                         </div>
                       </div>
 
+                     
+                      @if ($mode == 'create')
                       <div class="text-right">
-                        {{ Form::submit('submit', ['class' => 'btn btn-primary']) }}
+                        {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
                       </div>
+                      @else
+                      <div class="text-right">
+                        {{ Form::submit('Update', ['class' => 'btn btn-primary']) }}
+                      </div>
+                      @endif
+                      
 
                     {!! Form::close() !!}
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\Group;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,8 +30,10 @@ class UserController extends Controller
     public function create()
     {   
         $this->data['groupList'] = Group::arrayForGroupList();
+        $this->data['mode'] = 'create';
+        $this->data['headLine'] = 'Add New User';
 
-        return view('users.create',$this->data);
+        return view('users.form',$this->data);
     }
 
     /**
@@ -69,7 +72,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $this->data['user'] = User::find($id);
+        $this->data['groupList'] = Group::arrayForGroupList();
+        $this->data['mode'] = 'edit';
+        $this->data['headLine'] = 'Update Information';
+
+        return view('users.form',$this->data);
     }
 
     /**
@@ -79,9 +87,22 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
-        //
+        $formData = $request->all();
+        $user = User::find($id);
+
+        $user->group_id = $formData['group_id'];
+        $user->name = $formData['name'];
+        $user->email = $formData['email'];
+        $user->phone = $formData['phone'];
+        $user->address = $formData['address'];
+
+        // if($user->save()){
+        //     Session::flash('meg','User Updated Succesfully');
+        // }
+
+        return redirect()->to('user')->with('meg','User Updated Succesfully');
     }
 
     /**

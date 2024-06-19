@@ -19,7 +19,7 @@ class UserGroupController extends Controller
     public function store(Request $request){
         $formData = $request->all();
         if(Group::create($formData)){
-            $request->session()->flash('meg', 'Data Insert Succesfully');
+            $request->session()->flash('meg', 'Group Created Succesfully');
         }
         
         return redirect()->to('groups');
@@ -27,7 +27,7 @@ class UserGroupController extends Controller
 
     public function delete(Request $request,$id){
         if(Group::find($id)->delete()){
-            $request->session()->flash('meg', 'Data Deleted Succesfully');
+            $request->session()->flash('meg', 'Group Deleted Succesfully');
         }
         
         return redirect()->to('groups');

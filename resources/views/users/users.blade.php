@@ -45,7 +45,7 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->admin_id }}</td>
-                            <td>{{ $user->group_id }}</td>
+                            <td>{{ $user->group->title }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>
@@ -54,7 +54,9 @@
                                 <form action="{{ url('user/'.$user->id) }}" method="POST">
                                     @csrf
                                     @method('delete') 
-                                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger" ><i class="fa fa-minus-circle mr-1"></i>Delete</button>
+                                    <a href="#" class="btn btn-info btn-sm" ><i class="fa fa-eye-slash"></i></a>
+                                    <a href="{{ url('user/'.$user->id.'/edit') }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+                                    <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm" ><i class="fa fa-minus-circle"></i></button>
                                 </form>
                             </td>
                         </tr>
