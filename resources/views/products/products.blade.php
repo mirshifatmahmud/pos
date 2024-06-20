@@ -4,10 +4,10 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h1>All Users</h1>
+            <h1>All Procuct</h1>
         </div>
         <div class="col-md-6 text-right">
-            <a href="{{ url('user/create') }}"><button class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add New User</button></a>
+            <a href="{{ url('product/create') }}"><button class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add New Product</button></a>
         </div>
     </div>
     <hr>
@@ -23,12 +23,11 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Admin_id</th>
-                            <th>Group_id</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone</th>
-                            <th>Address</th>
+                            <th>Category_id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Cost_Price</th>
+                            <th>Price</th>
                             <th class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -41,21 +40,20 @@
                     </tfoot> --}}
                     <tbody>
 
-                        @foreach ($users as $user)
+                        @foreach ($products as $product)
                         <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->admin_id }}</td>
-                            <td>{{ $user->group->title }}</td>
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->phone }}</td>
-                            <td>{{ $user->address }}</td>
+                            <td>{{ $product->id }}</td>
+                            <td>{{ $product->category->title }}</td>
+                            <td>{{ $product->title }}</td>
+                            <td>{{ $product->description }}</td>
+                            <td>{{ $product->cost_price }}</td>
+                            <td>{{ $product->price }}</td>
                             <td class="text-center">
-                                <form action="{{ url('user/'.$user->id) }}" method="POST">
+                                <form action="{{ url('product/'.$product->id) }}" method="POST">
                                     @csrf
                                     @method('delete') 
-                                    <a href="{{ url('user/'.$user->id) }}" class="btn btn-info btn-sm" ><i class="fa fa-eye-slash"></i></a>
-                                    <a href="{{ url('user/'.$user->id.'/edit') }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+                                    <a href="{{ url('product/'.$product->id) }}" class="btn btn-info btn-sm" ><i class="fa fa-eye-slash"></i></a>
+                                    <a href="{{ url('product/'.$product->id.'/edit') }}" class="btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
                                     <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm" ><i class="fa fa-minus-circle"></i></button>
                                 </form>
                             </td>

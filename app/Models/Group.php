@@ -14,7 +14,7 @@ class Group extends Model
 
     public static function arrayForGroupList(){
         $arr = [];
-        $all= Group::all();
+        $all = Group::all();
         foreach($all as $i){
             $arr[$i->id] = $i->title; 
         } 
