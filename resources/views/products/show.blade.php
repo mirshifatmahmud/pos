@@ -22,7 +22,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                {{ 'Category     : '.$product->category->title }} </br>
+                {{ 'Category     : '.$product->category_name }} </br>
                 {{ 'Title      : '.$product->title }} </br>
                 {{ 'Description    : '.$product->description }} </br>
                 {{ 'Cost Price     : '.$product->cost_price }} </br>

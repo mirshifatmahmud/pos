@@ -90,7 +90,7 @@ class ProductController extends Controller
     {
         $formData = $request->all();
         $product = Product::find($id);
-        $product->category_id = $formData['category_id'];
+        $product->category_name = $formData['category_name'];
         $product->title = $formData['title'];
         $product->description = $formData['description'];
         $product->cost_price = $formData['cost_price'];

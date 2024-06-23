@@ -94,16 +94,13 @@ class UserController extends Controller
         $formData = $request->all();
         $user = User::find($id);
 
-        $user->group_id = $formData['group_id'];
+        $user->group_name = $formData['group_name'];
         $user->name = $formData['name'];
         $user->email = $formData['email'];
         $user->phone = $formData['phone'];
         $user->address = $formData['address'];
-
-        // if($user->save()){
-        //     Session::flash('meg','User Updated Succesfully');
-        // }
-
+        $user->save();
+        
         return redirect()->to('user')->with('meg','User Updated Succesfully');
     }
 

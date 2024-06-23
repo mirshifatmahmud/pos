@@ -24,7 +24,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Admin_id</th>
-                            <th>Group_id</th>
+                            <th>Group_name</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
@@ -45,7 +45,7 @@
                         <tr>
                             <td>{{ $user->id }}</td>
                             <td>{{ $user->admin_id }}</td>
-                            <td>{{ $user->group->title }}</td>
+                            <td>{{ $user->group_name }}</td>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->phone }}</td>

@@ -22,7 +22,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                {{ 'Group     : '.$user->group->title }} </br>
+                {{ 'Group     : '.$user->group_name }} </br>
                 {{ 'Name      : '.$user->name }} </br>
                 {{ 'E-mail    : '.$user->email }} </br>
                 {{ 'Phone     : '.$user->phone }} </br>

@@ -16,7 +16,7 @@ class Group extends Model
         $arr = [];
         $all = Group::all();
         foreach($all as $i){
-            $arr[$i->id] = $i->title; 
+            $arr[$i->title] = $i->title; 
         } 
         return $arr;
     }

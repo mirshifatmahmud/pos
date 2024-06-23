@@ -10,7 +10,7 @@ class User extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['group_id','name','email','phone','address'];
+    protected $fillable = ['group_name','name','email','phone','address'];
 
     public function group(){
         return $this->belongsTo(Group::class);

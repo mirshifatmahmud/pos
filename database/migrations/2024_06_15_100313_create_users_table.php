@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
 
             $table->foreignId('admin_id')->nullable();
-            $table->foreignId('group_id');
+            $table->string('group_name');
             
             $table->string('name',100);            
             $table->string('email',100)->nullable();            

@@ -32,9 +32,9 @@
                 @endif
 
                     <div class="form-group row">
-                        {{ Form::label('category_id', 'Select Category', ['class' => 'col-sm-2 col-form-label']) }}
+                        {{ Form::label('category_name', 'Select Category', ['class' => 'col-sm-2 col-form-label']) }}
                         <div class="col-sm-10">
-                            {{ Form::select('category_id', $categoryList, null, ['class' => 'form-control', 'placeholder' => 'Select User Group']) }}
+                            {{ Form::select('category_name', $categoryList, null, ['class' => 'form-control', 'placeholder' => 'Select User Group']) }}
                         </div>
                       </div>
 

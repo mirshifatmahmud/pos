@@ -24,7 +24,7 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'group_id' => 'required',
+            'group_name' => 'required',
             'name' => 'required|string',
             'email' => 'nullable|email',
             'phone' => 'required',

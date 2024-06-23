@@ -16,7 +16,7 @@ class Category extends Model
         $arr = [];
         $all = Category::all();
         foreach($all as $i){
-            $arr[$i->id] = $i->title;
+            $arr[$i->title] = $i->title;
         }
         return $arr;
     }
