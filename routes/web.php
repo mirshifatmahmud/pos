@@ -25,6 +25,7 @@ Route::group(['middleware'=>'auth'],function(){
     Route::delete('groups/delete/{id}',[UserGroupController::class,'delete']);
     
     Route::resource('user', UserController::class);
+    Route::get('user/{id}/sales'[]);
     
     Route::resource('category', ProductCategoryController::class,['except'=>['show','update','edit']]);
     Route::resource('product', ProductController::class);
