@@ -31,7 +31,7 @@ class User extends Model
     }
 
     public function receipt(){
-        return $this->hasMany(Payment::class);
+        return $this->hasMany(Receipt::class);
     }
 
 }

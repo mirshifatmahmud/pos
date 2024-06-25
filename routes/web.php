@@ -6,7 +6,6 @@ use App\Http\Controllers\UserGroupController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\UserInfoController;
 use App\Http\Controllers\UserSalesController;
 use App\Http\Controllers\UserPaymentController;
 use App\Http\Controllers\UserPurchaseController;
@@ -49,10 +48,15 @@ Route::group(['middleware'=>'auth'],function(){
     Route::resource('user', UserController::class);
 
     Route::get('user/{id}/sales',[UserSalesController::class,'index']);
-    Route::get('user/{id}/userinfo',[UserInfoController::class,'index']);
-    Route::get('user/{id}/payment',[UserPaymentController::class,'index']);
     Route::get('user/{id}/purchase',[UserPurchaseController::class,'index']);
-    Route::get('user/{id}/receipt',[UserReceiptController::class,'index']);
+
+    Route::get('user/{id}/payment',[UserPaymentController::class,'index'])->name('payment');
+    Route::post('user/{id}/payment',[UserPaymentController::class,'store']);
+    Route::delete('user/{id}/payment/{payment_id}',[UserPaymentController::class,'destroy'])->name('user.payment.delete');
+    
+    Route::get('user/{id}/receipt',[UserReceiptController::class,'index'])->name('receipt');
+    Route::post('user/{id}/receipt',[UserReceiptController::class,'store']);
+    Route::delete('user/{id}/receipt/{receipt_id}',[UserReceiptController::class,'destroy'])->name('user.receipt.delete');
 
     
     Route::resource('category', ProductCategoryController::class,['except'=>['show','update','edit']]);

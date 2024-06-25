@@ -4,6 +4,8 @@
 
 <div class="card shadow mb-4">
     <div class="card-body">
+      <h4><strong class="text-primary">{{ $user->name.' ' }}</strong>{{ $headLine }}</h4>
+      <hr>
         <div class="table-responsive">
             <table class="table table-striped">
                 <tbody>

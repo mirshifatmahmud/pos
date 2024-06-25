@@ -10,6 +10,7 @@ class UserSalesController extends Controller
 {
     public function index($id){
         $this->data['user'] = User::find($id);
+        $this->data['headLine'] = 'Sales Table';
         return view('users.sales.sales',$this->data);
     }
 }

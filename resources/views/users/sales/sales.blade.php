@@ -4,12 +4,14 @@
 
 <div class="card shadow mb-4">
     <div class="card-body">
+        <h4><strong class="text-primary">{{ $user->name.' ' }}</strong>{{ $headLine }}</h4>
+        <hr>
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Admin ID</th>
+                        <th>Admin Name</th>
                         <th>User Name</th>
                         <th>Invoice No</th>
                         <th>Invoice Date</th>
@@ -21,7 +23,7 @@
                     @foreach ($user->sales as $sale)
                     <tr>
                         <td>{{ $sale->id }}</td>
-                        <td>{{ $sale->admin_id }}</td>
+                        <td>{{ $sale->admin->name }}</td>
                         <td>{{ $sale->user->name }}</td>
                         <td>{{ $sale->invoice_no }}</td>
                         <td>{{ $sale->invoice_date }}</td>
