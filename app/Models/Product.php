@@ -14,4 +14,17 @@ class Product extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+
+    public function item(){
+        return $this->hasMany(SaleItem::class);
+    }
+
+    public static function arrayForProductList(){
+        $arr = [];
+        $all = Product::all();
+        foreach($all as $i){
+            $arr[$i->id] = $i->title;
+        }
+        return $arr;
+    }
 }
